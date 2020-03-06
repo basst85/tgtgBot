@@ -1,0 +1,1 @@
+dotnet .\app\tgtgBot.dll
