@@ -1,1 +1,1 @@
-dotnet .\app\tgtgBot.dll
+dotnet .\release\tgtgBot.dll
