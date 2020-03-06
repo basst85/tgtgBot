@@ -2,6 +2,6 @@ language: csharp
 mono: none
 dotnet: 3.1
 install:
-  - dotnet restore ./tgtgBot/tgtgBot.csproj
+  - dotnet restore ./src/tgtgBot.csproj
 script:
-  - dotnet build ./tgtgBot/tgtgBot.csproj
+  - dotnet build ./src/tgtgBot.csproj
