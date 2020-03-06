@@ -1,7 +1,4 @@
 # tgtgBot
 ToGoodToGo bot written in C# on .NET Core platform
 
-____
-
-
-[![Snyk.io test](https://snyk.io/test/github/basst85/tgtgBot/badge.svg?targetFile=tgtgBot/tgtgBot.csproj)](https://snyk.io/test/github/basst85/tgtgBot?targetFile=tgtgBot/tgtgBot.csproj)
+[![Build Status](https://travis-ci.org/basst85/tgtgBot.svg?branch=master)](https://travis-ci.org/basst85/tgtgBot)
