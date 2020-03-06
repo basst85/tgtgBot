@@ -9,19 +9,24 @@ namespace tgtgBot.Helpers
         {
             string variableValue = Environment.GetEnvironmentVariable(variableName);
 
-            if (!string.IsNullOrEmpty(variableValue))
+            if (!string.IsNullOrEmpty(variableValue)){
                 return variableValue;
+            }
+            else
+            {
+                try{
+                    IConfigurationRoot settings = new ConfigurationBuilder().
+                        AddJsonFile("appsettings.json").
+                        Build();
 
-            IConfigurationRoot settings = new ConfigurationBuilder().
-                AddJsonFile("appsettings.json").
-                Build();
-
-            return settings.GetSection(variableName).Value;
-        }
-
-        public static string GetEnvironmentVariable(string variableName)
-        {
-            throw new NotImplementedException();
+                    return settings.GetSection(variableName).Value;
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine("Variable or appsettings.json not found");
+                    throw exception;
+                }
+            }
         }
     }
 }

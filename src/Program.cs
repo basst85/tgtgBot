@@ -10,20 +10,29 @@ namespace tgtgBot
     {
         static async Task Main(string[] args)
         {
-            string email = BotEnvironment.GetConfigVariable("email");
-            string password = BotEnvironment.GetConfigVariable("password");
-
             Console.WriteLine("---- tgtgBot ----");
             Console.WriteLine("");
 
             User tgtgUser = new User()
             {
-                email = email,
-                password = password
+                email = BotEnvironment.GetConfigVariable("email"),
+                password = BotEnvironment.GetConfigVariable("password")
             };
 
             string tgtgApiAccessToken = await Auth.GetAccessToken(tgtgUser);
-            Console.WriteLine(tgtgApiAccessToken);
+
+            if (!string.IsNullOrEmpty(tgtgApiAccessToken)){
+                string latitude = BotEnvironment.GetConfigVariable("latitude");
+                string longitude = BotEnvironment.GetConfigVariable("longitude");
+                string radius = BotEnvironment.GetConfigVariable("radius");
+
+                string itemsJson = await Auth.GetItems(tgtgUser, latitude, longitude, radius);
+                Console.WriteLine(itemsJson);
+            }
+            else
+            {
+                Console.WriteLine("Could not get API token");
+            }
         }
     }
 }
