@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using tgtgBot.Models;
 
-namespace tgtgBot.Api
+namespace tgtgBot.Services
 {
-    public class Auth
+    public class tgtgApi
     {
         public static async Task<String> GetAccessToken(User tgtgUser)
         {

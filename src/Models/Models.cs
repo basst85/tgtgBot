@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace tgtgBot.Models
+﻿namespace tgtgBot.Models
 {
     public class User
     {
