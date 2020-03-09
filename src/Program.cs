@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using tgtgBot.Services;
 using tgtgBot.Helpers;
 using tgtgBot.Models;
@@ -26,8 +27,14 @@ namespace tgtgBot
                 string longitude = BotEnvironment.GetConfigVariable("longitude");
                 string radius = BotEnvironment.GetConfigVariable("radius");
 
-                string itemsJson = await tgtgApi.GetItems(tgtgUser, latitude, longitude, radius);
-                Console.WriteLine(itemsJson);
+                var items = await tgtgApi.GetItems(tgtgUser, latitude, longitude, radius);
+
+                foreach (var tgtgItem in items.SelectToken("items"))
+                {
+                    Console.WriteLine("Name: {0}", tgtgItem["display_name"].ToString());
+                    Console.WriteLine("Items available: {0}", tgtgItem["items_available"].ToString());
+                    Console.WriteLine("-----");
+                }
             }
             else
             {

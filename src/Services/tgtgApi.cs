@@ -57,7 +57,7 @@ namespace tgtgBot.Services
             }
         }
 
-        public static async Task<String> GetItems(User tgtgUser, String latitude, String longitude, String radius)
+        public static async Task<JObject> GetItems(User tgtgUser, String latitude, String longitude, String radius)
         {
             string itemsUrl = "https://apptoogoodtogo.com/api/item/v4/";
 
@@ -87,12 +87,13 @@ namespace tgtgBot.Services
 
                             if (responseData != null){
                                 // Return response JSON
-                                return responseData;
+                                JObject responseJson = JObject.Parse(responseData);
+                                return responseJson;
                             }
                             else
                             {
                                 // No data received
-                                return string.Empty;
+                                return new JObject();
                             }
                         }
                     }
