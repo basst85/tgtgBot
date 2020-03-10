@@ -5,7 +5,7 @@ Receive a notification via IFTTT when there are Magic Boxes available nearby.
 [![Travis-ci Build Status](https://travis-ci.org/basst85/tgtgBot.svg?branch=master)](https://travis-ci.org/basst85/tgtgBot)
 [![CircleCI Build Status](https://circleci.com/gh/basst85/tgtgBot/tree/master.svg?style=svg)](https://circleci.com/gh/basst85/tgtgBot/tree/master)  
 
-#### Work in progress. It only returns nearby shops/items as JSON
+#### Work in progress. It now only returns nearby items as a list in console.
 ______
 
 ## Installation and usage
